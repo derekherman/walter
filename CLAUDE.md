@@ -24,8 +24,9 @@ npm run clean           # Remove packages/*/dist/
 ## Status
 
 - 1 skill, 9 commands, 6 agents, 12 references — all functional, `.walter/` persistence integrated
-- Build system: 4 providers, unified transforms, validation, placeholders, conditionals, auto-copy, ZIPs
-- Site: Astro, OG image, SEO meta, sitemap, favicons, 404
+- Build system: all ESM, deterministic OG/banner output, 4 providers, unified transforms, validation, placeholders, conditionals, auto-copy, ZIPs
+- Site: Astro, OG image, SEO meta, sitemap, favicons, 404, analytics (Vercel Analytics + Speed Insights + GA)
+- Analytics: event tracking wired on all interactive elements — tabs, copy, download, method pills, theme toggle, outbound links. GA gated on `PUBLIC_GA_ID` env var. Helpers in `packages/site/src/lib/analytics.ts`
 - Plugin: marketplace.json + plugin.json ready
 - Quality: lint + build pass clean, Husky pre-commit hooks enforced
 - CI: GitHub Actions on PR and push to main
@@ -38,7 +39,7 @@ npm run clean           # Remove packages/*/dist/
 
 ## Next
 
-Content audit, frontmatter descriptions, Heisenberg evolution.
+Content audit, frontmatter descriptions, Heisenberg evolution. Set `PUBLIC_GA_ID` in Vercel project settings to activate Google Analytics.
 
 ### Remaining Before Release
 
