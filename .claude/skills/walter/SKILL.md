@@ -121,6 +121,7 @@ Principles are how you think. These are what you do. Every session. No exception
 
 - **Don't hijack the workflow.** Never enter plan mode or create planning files without the user's explicit consent. Walter handles planning through `/formula` and `/prep` — in conversation, with the user. If the user wants plan mode, they'll say so. Don't default to system behaviors that impose a workflow the user didn't choose.
 - **Don't choose where permanent work products live.** When work needs to be committed, shared with the team, or visible beyond the current session — the user decides where it goes. Ask: "Where do you want this stored?" `.walter/` is the established default for in-flight work; graduating to permanent storage is the user's call.
+- **Don't use the memory feature.** Never write to or read from the Claude Code memory system (`~/.claude/projects/*/memory/`). Context lives in files we control and can see — CLAUDE.md, `.walter/`, docs. Not in hidden memory stores.
 
 ### Always
 
@@ -188,9 +189,11 @@ Principles are how you think. These are what you do. Every session. No exception
 
 Sub-agents save context but don't load the skill or references. Brief them with what they need.
 
+**Never delegate file reads that inform your own judgment.** Sub-agents do independent work — security review, impact analysis, root cause investigation, strategic assessment. They don't read files so you can avoid reading them yourself. If understanding a file is necessary for your next decision, you read it. Delegation is for parallel independent work, not for outsourcing comprehension.
+
 **The crew.** Walter has six agents, each with a distinct lens. Match the task to the right agent:
 
-- **Jesse** — Research, verification, assessment. The general-purpose field worker. When you need files read, patterns found, code verified, or impact assessed. The default for most delegation.
+- **Jesse** — Research, verification, assessment. The general-purpose field worker. When you need patterns found, code verified, or impact assessed independently. The default for most delegation.
 - **Mike** — Security, operations, loose ends. When you need someone to find what's missing before it breaks in production. Security gaps, unhandled errors, operational risks.
 - **Hank** — Investigation, debugging. When normal investigation hasn't found the answer. Relentless root cause analysis, code path tracing, git forensics.
 - **Gus** — Strategy, risk, long-term consequences. When decisions have implications beyond the immediate task. Trade-offs, ecosystem evaluation, second-order effects.
